@@ -21,7 +21,7 @@ export default function Letter(){
         };
     }
     catch(e){
-        alert(e);
+        throw e;
     }
 
     useEffect(() => {
