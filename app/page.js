@@ -18,7 +18,7 @@ export default function Home() {
   const [pass, setPass] = useState([]);
   
   useEffect(() => {
-    const target = new Date("February 14, 2025 00:00:02");
+    const target = new Date("February 13, 2025 00:00:02");
 
     localStorage.setItem('code', '0');
 
