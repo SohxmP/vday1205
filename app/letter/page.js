@@ -16,16 +16,14 @@ export default function Letter(){
 
     const [sp, setSp] = useState(false);
 
-    try{
+    if (typeof window !== "undefined") {
         window.onscroll = function(ev) {
             if (((window.innerHeight + Math.round(window.scrollY)) >= document.body.offsetHeight - 100) && (rm.class == 'rm')) {
                 setSl(true);
             }
         };
     }
-    catch(e){
-        alert(e);
-    }
+        
 
     useEffect(() => {
         
