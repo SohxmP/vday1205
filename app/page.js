@@ -18,7 +18,7 @@ export default function Home() {
   const [pass, setPass] = useState([]);
   
   useEffect(() => {
-    const target = new Date("February 13, 2025 00:00:02");
+    const target = new Date("February 14, 2025 00:00:02");
 
     localStorage.setItem('code', '0');
 
@@ -42,7 +42,7 @@ export default function Home() {
   return (
     <div className={styles.page}>
       <main className={styles.main}>
-        {new Date("February 14, 2025 00:00:02").getTime() < dt ? 
+        {new Date("February 13, 2025 00:00:02").getTime() < dt ? 
           <div>
             <input type="text" maxLength={6} className={styles.input} placeholder="enter the code" value={pass} onChange={(e) => {
               if(e.target.value.length == 6){
