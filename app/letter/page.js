@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import './styles.css';
 import cutie from './cutie.png';
+import spcode from './spcode.jpeg';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 
@@ -13,15 +14,22 @@ export default function Letter(){
     const [rm, setRm] = useState({class: 'rm-hidden'});
     const [sl, setSl] = useState(false);
 
-    if (typeof window !== 'undefined') {
+    const [sp, setSp] = useState(false);
+
+    try{
         window.onscroll = function(ev) {
             if (((window.innerHeight + Math.round(window.scrollY)) >= document.body.offsetHeight - 100) && (rm.class == 'rm')) {
                 setSl(true);
             }
         };
     }
-    
+    catch(e){
+        alert(e);
+    }
+
     useEffect(() => {
+        
+
         if(localStorage.getItem('code') == '070524'){
 
         }
@@ -31,7 +39,37 @@ export default function Letter(){
     }, []);
 
     return (
+        
         <div className={rm.class == 'rm-hidden' ? 'main' : 'main-exp'}>
+            <div className={sp ? "flip-card" : "fc-hidden"}>
+                <div className="flip-card-inner">
+                    <div className="flip-card-front">
+                        <p className="title">For <span style={{color:'coral'}}>Isha Lokur</span></p>
+                    </div>
+                    <div className="flip-card-back">
+                        <div className='top'>
+                            <svg className='close' onClick={() => {
+                                setSp(false);
+                            }} xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="25" height="100" viewBox="0,0,256,256">
+                                <g fill="#ffffff" fillRule="nonzero" stroke="none" strokeWidth="1" strokeLinecap="butt" strokeLinejoin="miter" strokeMiterlimit="10" strokeDasharray="" strokeDashoffset="0" fontFamily="none" fontWeight="none" fontSize="none" textAnchor="none"><g transform="scale(8.53333,8.53333)"><path d="M7,4c-0.25587,0 -0.51203,0.09747 -0.70703,0.29297l-2,2c-0.391,0.391 -0.391,1.02406 0,1.41406l7.29297,7.29297l-7.29297,7.29297c-0.391,0.391 -0.391,1.02406 0,1.41406l2,2c0.391,0.391 1.02406,0.391 1.41406,0l7.29297,-7.29297l7.29297,7.29297c0.39,0.391 1.02406,0.391 1.41406,0l2,-2c0.391,-0.391 0.391,-1.02406 0,-1.41406l-7.29297,-7.29297l7.29297,-7.29297c0.391,-0.39 0.391,-1.02406 0,-1.41406l-2,-2c-0.391,-0.391 -1.02406,-0.391 -1.41406,0l-7.29297,7.29297l-7.29297,-7.29297c-0.1955,-0.1955 -0.45116,-0.29297 -0.70703,-0.29297z"></path></g></g>
+                            </svg>
+                        </div>
+                        <div className='m'>
+                            <div className='tooltip'>
+                                Here's a Playlist I made which reminds me of YOU!
+                            </div>
+                            <img onClick={() => {
+                                window.open("https://open.spotify.com/playlist/6t0F3jV3iiTO3epw8o5qXH?si=210145443d1c4978", '_blank');
+                            }} className='pc' src="https://image-cdn-ak.spotifycdn.com/image/ab67706c0000d72cc7ba35b23368179ff3bd68c8"></img>
+                        
+                        </div>
+                        <Image src={spcode} className='spcode' alt='cutie'></Image>
+                    </div>
+                </div>
+            </div>
+            <button className={sl ? 'sp' : 'sph'} onClick={() => {
+                setSp(true);
+            }}>Click For a SURPRISE</button>
             <button className={sl ? 'sl' : 'slh'} onClick={() => {
                 for(let i=0; i<50; i++){
                     const heart = document.createElement("div");
