@@ -222,6 +222,42 @@ p{
 }
 
 
+.sp{
+  position: fixed;
+  bottom: 70px;
+  right: 20px;
+  border: none;
+  border-radius: 10px;
+  outline: none;
+  width: 12vw;
+  height: 7vh;
+  line-height: 99%;
+  background-color: #ff004c;
+  color: #ffd2d2;
+  font-size: 1.2vw;
+  font-weight: 900;
+  cursor: pointer;
+  z-index: 4;
+  transition: all ease 0.5s;
+  animation: slide-in-blurred-bottom 1s cubic-bezier(0.230, 1.000, 0.320, 1.000) both;
+}
+
+.sp:hover{
+  background-color: #bc0a3f;
+}
+
+.sp:active{
+  background-color: #262626;
+}
+
+.sph{
+  visibility: hidden;
+  display: none;
+}
+
+
+
+
 .heartp{
     position: fixed;
     top: 0;
@@ -293,3 +329,124 @@ p{
     bottom: -1px;
     transition: all ease 0.5s;
   }
+
+
+
+
+.fc-hidden{
+  visibility: hidden;
+}
+
+.flip-card {
+  position: fixed;
+  top: 0;
+  bottom: 5px;
+  margin-top: auto;
+  margin-bottom: auto;
+  z-index: 5;
+  background-color: transparent;
+  width: 300px;
+  height: 400px;
+  perspective: 1000px;
+  animation: slide-in-blurred-bottom 1s cubic-bezier(0.230, 1.000, 0.320, 1.000) both;
+}
+
+.title {
+  font-size: 1.5em;
+  font-weight: 900;
+  text-align: center;
+  margin: 0;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  box-shadow: 0 8px 14px 0 rgba(0,0,0,0.2);
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border: 1px solid coral;
+  border-radius: 1rem;
+}
+
+.flip-card-front {
+  background-color: #bc0a3f;
+  color: coral;
+}
+
+.flip-card-back {
+  background-color: #bc0a3f;
+  color: white;
+  transform: rotateY(180deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flip-card-back > .top{
+  position: fixed;
+  top: 20px;
+}
+
+.close{
+  position: fixed;
+  top: -25px;
+  right: 10px;
+  cursor: pointer;
+}
+
+.flip-card-back > .m > .pc{
+  border-radius: 6px;
+  width: 200px;
+  cursor: pointer;
+  box-shadow: 0px 0px 66px -1px rgb(123, 4, 40, 0.9);
+}
+
+.flip-card-back > .m > .tooltip{
+  width: 250px;
+  position: fixed;
+  top: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #bc0a3f; /* White background */
+  color: #ffffff; /* Black text */
+  font-weight: 500;
+  box-shadow: 0px 0px 66px -1px rgb(123, 4, 40, 0.9);
+  padding: 6px 10px;
+  border-radius: 5px;
+  opacity: 0;
+  visibility: hidden;
+  font-size: 14px;
+  letter-spacing: 1px;
+  transition: all 0.5s ease;
+}
+
+.flip-card-back > .m:hover > .tooltip{
+  opacity: 1;
+  visibility: visible;
+  top: 6px;
+}
+
+.spcode{
+  width: 200px;
+  height: 50px;
+  margin-top: 15px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 66px -1px rgb(123, 4, 40, 0.9);
+}
